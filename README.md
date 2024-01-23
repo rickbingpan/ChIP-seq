@@ -61,7 +61,7 @@ Mapping about ChIP-Seq spike-in normalization. the following parameters:
 sh 02_map_dm6_spikerIN.sh <out_path> <sample> <yes|no>
 ```
 
-- `out_path`: The output directory where the results will be stored.
+- `out_path`: Current working directory.
 - `sample`: The name of the ChIP-Seq sample.
 - `yes|no`: Whether the data is paired-end (`yes`) or single-end (`no`).
 
@@ -82,7 +82,7 @@ sh 02_scale.bw.sh <sample> <min_spike> <projectdir> <fai>
 
 - `sample`: The name of the ChIP-Seq sample.
 - `min_spike`: The lowest value in 02_map_dm6/<sample>/f.assessment.sh.o file's Total records about IP sample.
-- `projectdir`: The path to the project directory.
+- `projectdir`: Current working directory.
 - `fai`: The reference genome file index, such as hg38.fa.fai.
 
 The script performs the following steps:
@@ -99,7 +99,7 @@ Call peaks by MACS2, filter peaks with blacklist and p-value < 1e9, fold_enrichm
 sh 03_callpeak.sh <project_path> <tre> <con> <paire> <ref> <blacklist.bed>
 ```
 
-- `project_path`: The path to the project directory.
+- `project_path`: Current working directory.
 - `tre`: The treatment sample name.
 - `con`: The control sample name.
 - `paire`: Whether the data is paired-end (`yes`) or single-end (`no`).
@@ -127,7 +127,7 @@ Learning and characterizing chromatin states by [`ChromHMM`](https://compbio.mit
 sh 04_chromHMM.sh <project_path> <ref>
 ```
 
-- `project_path`: The path to the project directory.
+- `project_path`: Current working directory.
 - `ref`: The reference genome file.
 
 The script performs the following steps:
@@ -161,7 +161,7 @@ Plot distributed heatmap of peak centers. the following parameters:
 sh 06_peakCenter_heatmap.sh <project_path> <peak> <sample>
 ```
 
-- `project_path`: The path to the project directory.
+- `project_path`: Current working directory.
 - `peak`: peak file.
 - `sample`: The name of the ChIP-seq sample.
 
