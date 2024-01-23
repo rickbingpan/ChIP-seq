@@ -32,7 +32,7 @@ sh 01_qc_map.sh <rawdata_path> <out_path> <sample> <yes|no> <ref>
 ```
 
 - `rawdata_path`: The path to the directory containing the raw data files.
-- `out_path`: The output directory where the results will be stored.
+- `out_path`: Current working directory.
 - `sample`: The name of the ChIP-Seq sample.
 - `yes|no`: Whether the data is paired-end (`yes`) or single-end (`no`).
 - `ref`: The reference genome file index, such as hg38.fa.
