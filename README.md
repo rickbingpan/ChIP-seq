@@ -13,13 +13,13 @@ overview of ChIP-Seq pipeline:
 # Prepare data
 1. FASTQ rawdata
 2. Reference genome index files for mapping
-3. sample.list: It contains 1 column, sample.
-4. call.peak.info: It contains 2 columns, treatment(IP sample) , control(INPUT sample).
+3. sample.list: It contains 1 column, `sample`.
+4. call.peak.info: It contains 2 columns, `treatment(IP sample) , control(INPUT sample)`.
 5. chromHMM.HM.txt: It contains 4 columns, such as `asyn      H3K27ac      asyn_H3K27ac_rep1.final.bam      asyn_input_rep1.final.bam`
 6. chromhmm.reorder.hmnames.txt: It contains a Histone name every row, such as</br>
-      H3K4me3</br>
+      `H3K4me3</br>
       H3K27ac</br>
-      ...
+      ...`
 7. chromhmm.reorder.states.txt: It contains 2 colomuns, `raw state      reorder state(start from 1)`
 
 # Pipeline summary
