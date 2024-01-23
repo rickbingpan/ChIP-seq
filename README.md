@@ -5,8 +5,8 @@ on release, the rawdata for the pipeline testing is histone and transcription fa
 
 The pipeline is designed to process QC, mapping, calling peak, ChIPQC, chromHMM for ChIP-seq data. 
 overview of ChIP-seq pipeline:
-![peak pipeline](https://github.com/rickbingpan/ChIP-seq/assets/92712179/47ae80d5-bfa5-4953-895f-d3f541a67050)
 
+![peak pipeline](https://github.com/rickbingpan/ChIP-seq/assets/92712179/47ae80d5-bfa5-4953-895f-d3f541a67050)
 ## Prerequisites
 
 Before running the pipeline, make sure you have the following requirements:
