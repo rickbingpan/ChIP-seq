@@ -132,7 +132,7 @@ sh 04_chromHMM.sh <project_path> <ref>
 
 The script performs the following steps:
 
-1. Binarize BAM files: The script uses [`ChromHMM`](https://compbio.mit.edu/ChromHMM/) to change binary files.
+1. Binarize BAM files: bam file change to binary files by [`ChromHMM`](https://compbio.mit.edu/ChromHMM/) BinarizeBam.
 2. Learn model: The script uses [`ChromHMM`](https://compbio.mit.edu/ChromHMM/) to learn a model based on the binarized data.
 3. Reorder states: The script reorders the chromatin states based on a predefined order specified in the `chromhmm.reorder.hmnames.txt` file.
 4. Analysis: The script performs analysis on other data using the trained model and generates segmentation files.
