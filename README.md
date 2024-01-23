@@ -25,7 +25,7 @@ overview of ChIP-seq pipeline:
 # Pipeline summary
 ## 01_qc_map.sh
 
-This script performs quality control (QC) and mapping of the ChIP-seq raw data. It takes the following parameters:
+This script performs quality control (QC) and mapping of the ChIP-seq data. It takes the following parameters:
 
 ```bash
 sh 01_qc_map.sh <rawdata_path> <out_path> <sample> <yes|no> <ref>
@@ -35,15 +35,15 @@ sh 01_qc_map.sh <rawdata_path> <out_path> <sample> <yes|no> <ref>
 - `out_path`: The output directory where the results will be stored.
 - `sample`: The name of the ChIP-seq sample.
 - `yes|no`: Whether the data is paired-end (`yes`) or single-end (`no`).
-- `ref`: The reference genome file index, such as hg38.fa.fai.
+- `ref`: The reference genome file index, such as hg38.fa.
 
 The script performs the following steps:
 
 1. Quality Control: FastQC and Trim Galore! are used to assess and trim raw sequencing data, ensuring high-quality reads for mapping.
-2. Read Mapping: Processed reads are aligned to the reference genome using Bowtie2.
+2. Read Mapping: clean reads are aligned to the reference genome using Bowtie2.
 3. Marking Duplicates: Picard Tools are used to mark potential PCR duplicates in the aligned reads.
-4. Result Conversion to BigWig: The final aligned, sorted, and processed BAM files are converted into BED format, and then into bedgraph format, followed by conversion to BigWig format using bedGraphToBigWig for visualization purposes.
-5. Additional analysis: The script generates assessment statistics (`assessment.sh.o` for rmdup.bam map results , `assessment.sh.e` for error info and f.assessment.sh.* for final.bam).
+4. Result Conversion to BigWig: The final BAM files are converted into BED format, and then into bedgraph format, followed by conversion to BigWig format using bedGraphToBigWig for visualization purposes ([`IGV`](https://www.igv.org/)).
+5. Additional analysis: Statistical mapping information (`assessment.sh.o` for rmdup.bam map results , `assessment.sh.e` for error info and f.assessment.sh.* for final.bam).
 
 If you need to use this script to run multi samples, you can use this command:
 
