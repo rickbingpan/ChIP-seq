@@ -20,7 +20,7 @@ overview of ChIP-Seq pipeline:
       H3K4me3</br>
       H3K27ac</br>
       ...
-7. chromhmm.reorder.states.txt: It contains 2 colomuns, raw state      reorder state(start from 1)
+7. chromhmm.reorder.states.txt: It contains 2 colomuns, `raw state      reorder state(start from 1)`
 
 # Pipeline summary
 ## 01_qc_map.sh
