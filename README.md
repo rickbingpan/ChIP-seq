@@ -46,7 +46,7 @@ The script performs the following steps:
 5. Result Conversion to BigWig: The final BAM files are converted into BED format, and then into bedgraph format, followed by conversion to BigWig format using [bedGraphToBigWig](https://www.encodeproject.org/software/bedgraphtobigwig/) for visualization ([`IGV`](https://www.igv.org/)).
 6. Additional analysis: Statistical mapping information (`assessment.sh.o` for rmdup.bam map results , `assessment.sh.e` for error info and f.assessment.sh.* for final.bam).
 
-If you need to use this script to run multi samples, you can use this command:
+If you need to use this script to run multiple samples, you can use this command:
 
 ```bash
 cat ../sample.list |while read i;do echo "nohup sh 01_qc_map.sh rawdata_path out_path $i yes|no ref &" >> run_01_qc_map.sh; done
@@ -112,7 +112,7 @@ The script performs the following steps:
 2. Filtering: The script uses [`bedtools`](https://bedtools.readthedocs.io/en/latest/) to filter the called peaks by excluding regions specified in the blacklist file. The filtered peaks are stored in files with the suffix `.FB`.
 3. Filterring: The script uses the `awk` command to filter the rows in the `<tre>-VS-<con>_peaks.broadPeak.FB` file that satisfy the given conditions and outputs the results to the `<tre>-VS-<con>_peaks.broadPeak.FB.hash.peak` file. The condition is that fold_enrichment is greater than 5 and the -lg(p-value) is greater than 9.
 
-If you need to use this script to run multi samples, you can use this command:
+If you need to use this script to run multiple samples, you can use this command:
 
 ```bash
 cat ../callpeak.sample.info |while read a b c;do echo "nohup sh 03_callpeak.sh project_path $a $b $c ref blacklist &" >> run_03call_peak.sh; done
