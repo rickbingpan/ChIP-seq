@@ -170,6 +170,6 @@ The script performs the following steps:
 2. Conversion to BigWig: The script converts the bedGraph file to BigWig format.
 3. Heatmap plotting: The script uses `computeMatrix` and `plotHeatmap` to generate a heatmap of the peak centers based on the RPM values.
 
-## Conclusion
+# Conclusion
 
 This ChIP-seq pipeline provides a comprehensive set of scripts for processing ChIP-seq data and performing downstream analysis. Each script performs specific tasks, such as quality control, mapping, peak calling, and chromatin state analysis, to generate valuable insights into the genomic regions of interest. By following this pipeline, researchers can efficiently analyze their ChIP-seq data and gain a deeper understanding of the underlying biological processes.
