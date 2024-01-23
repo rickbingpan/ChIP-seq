@@ -7,28 +7,23 @@ The pipeline is designed to process QC, mapping, calling peak, ChIPQC, chromHMM 
 overview of ChIP-seq pipeline:
 
 ![peak pipeline](https://github.com/rickbingpan/ChIP-seq/assets/92712179/47ae80d5-bfa5-4953-895f-d3f541a67050)
-## Prerequisites
+## Installation
+- Installed software packages: `trim_galore`, `bowtie2`, `samtools`, `picard`, `RSeQC`, `bedtools`, `deeptools`, `ChromHMM`and `macs2`.
 
-Before running the pipeline, make sure you have the following requirements:
-
-- Raw ChIP-seq data files in FASTQ format
-- Reference genome files for the target species(mm10 and dm6)
-- Installed software packages: `fastp`, `bowtie2`, `samtools`, `picard`, `bam_stat.py`, `macs2`, `deeptools`, `ChromHMM`, and `bedtools`
-
-Please refer to the documentation of each software package for installation instructions.
-
-You also have to prepare some files:
-
-1. call.peak.info: It contains 3 columns, treatment(IP sample) , control(INPUT sample), heat_name.
-2. sample.list: It contains 1 column, sample.
-3. chromHMM.HM.txt: It contains 4 columns, such as `asyn	H3K27ac	asyn_H3K27ac_rep1.final.bam	asyn_input_rep1.final.bam`
-4. chromhmm.reorder.hmnames.txt: It contains a Histone name every row, such as</br>
+## Prepare data
+1. FASTQ rawdata
+2. Reference genome index files for mapping
+3. sample.list: It contains 1 column, sample.
+4. call.peak.info: It contains 2 columns, treatment(IP sample) , control(INPUT sample).
+5. chromHMM.HM.txt: It contains 4 columns, such as `asyn      H3K27ac      asyn_H3K27ac_rep1.final.bam      asyn_input_rep1.final.bam`
+6. chromhmm.reorder.hmnames.txt: It contains a Histone name every row, such as</br>
       H3K4me3</br>
       H3K27ac</br>
       ...
-5. chromhmm.reorder.states.txt: It contains 2 colomuns, raw state      reorder state(start from 1)
+7. chromhmm.reorder.states.txt: It contains 2 colomuns, raw state      reorder state(start from 1)
 
-
+## Quick start
+1. Install software
 ## 01_qc_map.sh
 
 This script performs quality control (QC) and mapping of the ChIP-seq raw data. It takes the following parameters:
