@@ -171,4 +171,4 @@ The script performs the following steps:
 
 # Conclusion
 
-This ChIP-Seq pipeline provides a set of scripts for processing ChIP-Seq data and performing downstream analysis. Each script performs specific tasks, such as quality control, mapping, peak calling, and chromatin state analysis, to generate valuable insights into the genomic regions of interest. By following this pipeline, researchers can efficiently analyze their ChIP-seq data and gain a deeper understanding of the underlying biological processes.
+This ChIP-Seq pipeline provides a set of scripts for processing ChIP-Seq data and performing downstream analysis. Each script performs specific tasks, such as quality control, mapping, peak calling, ChIPqc, and learning and characterizing chromatin states. By following this pipeline, researchers can efficiently analyze their ChIP-seq data and gain a deeper understanding of the underlying biological processes.
