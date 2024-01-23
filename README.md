@@ -8,7 +8,7 @@ overview of ChIP-seq pipeline:
 
 ![peak pipeline](https://github.com/rickbingpan/ChIP-seq/assets/92712179/47ae80d5-bfa5-4953-895f-d3f541a67050)
 ## Installation
-- Installed software packages: `[TrimGalore](https://github.com/FelixKrueger/TrimGalore)`, `bowtie2`, `samtools`, `picard`, `RSeQC`, `bedtools`, `deeptools`, `ChromHMM`and `macs2`.
+- Installed software packages: [`TrimGalore`](https://github.com/FelixKrueger/TrimGalore), [`bowtie2`](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml), [`samtools`](http://www.htslib.org/), [`picard`](https://broadinstitute.github.io/picard/), [`RSeQC`](https://rseqc.sourceforge.net/), [`bedtools`](https://bedtools.readthedocs.io/en/latest/), [`deeptools`](https://deeptools.readthedocs.io/en/develop/), [`ChromHMM`](https://compbio.mit.edu/ChromHMM/) and [`macs2`](https://hbctraining.github.io/Intro-to-ChIPseq/lessons/05_peak_calling_macs.html).
 
 ## Prepare data
 1. FASTQ rawdata
