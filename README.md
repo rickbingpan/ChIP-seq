@@ -42,7 +42,7 @@ The script performs the following steps:
 1. Quality Control:  [`TrimGalore`](https://github.com/FelixKrueger/TrimGalore) are used to assess and trim raw sequencing data, ensuring high-quality reads for mapping.
 2. Read Mapping: clean reads are aligned to the reference genome using [`bowtie2`](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml).
 3. Marking Duplicates: [`picard`](https://broadinstitute.github.io/picard/) are used to mark potential PCR duplicates in the aligned reads.
-4. Filtering: Depending on whether the data is paired-end (``-q 10 -F1804``) or single-end (-q 10 -F1024), the script uses [`samtools`](http://www.htslib.org/) to filter the aligned reads based on mapping quality and flags. The filtered reads are stored in a file named `<sample>.final.bam`.
+4. Filtering: Depending on whether the data is paired-end (`-q 10 -F1804`) or single-end (`-q 10 -F1024`), the script uses [`samtools`](http://www.htslib.org/) to filter the aligned reads based on mapping quality and flags. The filtered reads are stored in a file named `<sample>.final.bam`.
 5. Result Conversion to BigWig: The final BAM files are converted into BED format, and then into bedgraph format, followed by conversion to BigWig format using [bedGraphToBigWig](https://www.encodeproject.org/software/bedgraphtobigwig/) for visualization purposes ([`IGV`](https://www.igv.org/)).
 6. Additional analysis: Statistical mapping information (`assessment.sh.o` for rmdup.bam map results , `assessment.sh.e` for error info and f.assessment.sh.* for final.bam).
 
@@ -69,25 +69,25 @@ The script performs the following steps:
 
 1. Mapping: The script uses [`bowtie2`](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml) to align the clean reads to the spike-in reference genome. If the data is paired-end, it aligns both read files from the previous step. If the data is single-end, it aligns a single read file. The output is stored in BAM format (`<sample>.bam`).
 2. Mark duplicates: The script uses [`picard`](https://broadinstitute.github.io/picard/) to mark duplicate reads in the aligned BAM file. The output is stored in a file named `<sample>.rmdup.bam`.
-3. Filtering: Depending on whether the data is paired-end (-q 10 -F1804) or single-end (-q 10 -F1024), the script uses [`samtools`](http://www.htslib.org/) to filter the aligned reads based on mapping quality and flags. The filtered reads are stored in a file named `<sample>.final.bam`.
+3. Filtering: Depending on whether the data is paired-end (`-q 10 -F1804`) or single-end (`-q 10 -F1024`), the script uses [`samtools`](http://www.htslib.org/) to filter the aligned reads based on mapping quality and flags. The filtered reads are stored in a file named `<sample>.final.bam`.
 4. Additional analysis: Statistical mapping information (`assessment.sh.o` and `assessment.sh.e`).
 
 ## 02_scale.bw.sh
 
-This script is designed for processing bed data by normalizing coverage data to RPM (reads per million) and considering spike-in controls. It takes the following parameters:
+Used to normalize sequencing depth data, include RPM (reads per million) and spike-in normalization. It takes the following parameters:
 
 ```bash
 sh 02_scale.bw.sh <sample> <min_spike> <projectdir> <fai>
 ```
 
-- `sample`: The name of the ChIP-seq sample.
-- `min_spike`: The lowest value in 01_qc_map/<sample>/f.assessment.sh.o file's Total records, it need IP sample.
+- `sample`: The name of the ChIP-Seq sample.
+- `min_spike`: The lowest value in 02_map_dm6/<sample>/f.assessment.sh.o file's Total records about IP sample.
 - `projectdir`: The path to the project directory.
 - `fai`: The reference genome file index, such as hg38.fa.fai.
 
 The script performs the following steps:
-1. Calculating scaling factors: By parsing the information in the `01_qc_map/<sample>//f.assessment.sh.o` file, the values of `rpm` and `rpm_spike` are obtained. Two scaling factors, `sf1` and `sf2`, are calculated based on these values. Finally, the final scaling factor, `sf`, is calculated using these two factors.
-2. Generating RPM (Reads Per Million) file: The `bedtools genomecov` command is used to scale the `<sample>.bed` file based on the scaling factor `sf1`, and the output is saved as `<sample>.rpm.bedgraph` file. The file is then sorted to generate the `<sample>.sorted.rpm.bedgraph` file. Finally, the `bedGraphToBigWig` command is used to convert `<sample>.sorted.rpm.bedgraph` to `<sample>.rpm.bw` file.
+1. Calculating scaling factors: `RPM = 10e6/mapped reads`, `spike-in = RPM*(min mapped reads/mapped reads)`
+2. Generating RPM (Reads Per Million) file: The [`bedtools`](https://bedtools.readthedocs.io/en/latest/) tool is used to scale the `<sample>.bed` file based on the scaling factor RPM, and the output is saved as `<sample>.rpm.bedgraph` file. Finally, the [bedGraphToBigWig](https://www.encodeproject.org/software/bedgraphtobigwig/) command is used to convert `<sample>.sorted.rpm.bedgraph` to `<sample>.rpm.bw` file.
 3. Generating RPM and spikeIN file: The `bedtools genomecov` command is used to scale the `<sample>.bed` file based on the scaling factor `sf`, and the output is saved as `<sample>.min.bedgraph` file. The file is then sorted to generate the `<sample>.sorted.min.bedgraph` file. Finally, the `bedGraphToBigWig` command is used to convert `<sample>.sorted.min.bedgraph` to `<sample>.min.bw` file.
 
 
