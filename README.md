@@ -135,7 +135,7 @@ The script performs the following steps:
 1. Binarize BAM files: bam file changes to binary files by [`ChromHMM`](https://compbio.mit.edu/ChromHMM/) BinarizeBam.
 2. Learn model: The script uses [`ChromHMM`](https://compbio.mit.edu/ChromHMM/) to learn a model based on the binarized data.
 3. Reorder states: The script reorders the chromatin states based on a predefined order specified in the `chromhmm.reorder.hmnames.txt` file.
-4. Make segmentation: The script performs analysis on other data using the trained model to generates segmentation files.
+4. Make segmentation: The script performs analysis on other data using the trained model to generate segmentation files.
 5. Overlap enrichment: The script uses [`ChromHMM`](https://compbio.mit.edu/ChromHMM/) to calculate overlap enrichment between the chromatin states and specified regions.
 6. Heatmap plotting: This step is currently commented out in the script. It requires additional files (`emissions_15.txt` and `asyn_ol.txt`) to plot the heatmap.
 
