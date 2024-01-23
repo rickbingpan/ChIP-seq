@@ -7,10 +7,10 @@ The pipeline is designed to process QC, mapping, calling peak, ChIPQC, chromHMM 
 overview of ChIP-seq pipeline:
 
 ![peak pipeline](https://github.com/rickbingpan/ChIP-seq/assets/92712179/47ae80d5-bfa5-4953-895f-d3f541a67050)
-## Installation
+# Installation
 - Installed software packages: [`TrimGalore`](https://github.com/FelixKrueger/TrimGalore), [`bowtie2`](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml), [`samtools`](http://www.htslib.org/), [`picard`](https://broadinstitute.github.io/picard/), [`RSeQC`](https://rseqc.sourceforge.net/), [`bedtools`](https://bedtools.readthedocs.io/en/latest/), [`deeptools`](https://deeptools.readthedocs.io/en/develop/), [`ChromHMM`](https://compbio.mit.edu/ChromHMM/) and [`macs2`](https://hbctraining.github.io/Intro-to-ChIPseq/lessons/05_peak_calling_macs.html).
 
-## Prepare data
+# Prepare data
 1. FASTQ rawdata
 2. Reference genome index files for mapping
 3. sample.list: It contains 1 column, sample.
@@ -22,8 +22,7 @@ overview of ChIP-seq pipeline:
       ...
 7. chromhmm.reorder.states.txt: It contains 2 colomuns, raw state      reorder state(start from 1)
 
-## Quick start
-1. Install software
+# Pipeline summary
 ## 01_qc_map.sh
 
 This script performs quality control (QC) and mapping of the ChIP-seq raw data. It takes the following parameters:
