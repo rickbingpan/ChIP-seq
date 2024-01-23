@@ -88,7 +88,7 @@ sh 02_scale.bw.sh <sample> <min_spike> <projectdir> <fai>
 The script performs the following steps:
 1. Calculating scaling factors: `RPM = 10e6/mapped reads`, `spike-in = RPM*(min mapped reads/mapped reads)`
 2. Generating RPM (Reads Per Million) file: The [`bedtools`](https://bedtools.readthedocs.io/en/latest/) tool is used to scale the `<sample>.bed` file based on the scaling factor RPM, and the output is saved as `<sample>.rpm.bedgraph` file. Finally, the [bedGraphToBigWig](https://www.encodeproject.org/software/bedgraphtobigwig/) command is used to convert `<sample>.sorted.rpm.bedgraph` to `<sample>.rpm.bw` file.
-3. Generating RPM and spikeIN file: The [`bedtools`](https://bedtools.readthedocs.io/en/latest/) tool is used to scale the `<sample>.bed` file based on the scaling factor RPM, and the output is saved as `<sample>.min.bedgraph` file. The file is then sorted to generate the `<sample>.sorted.min.bedgraph` file. Finally, the [bedGraphToBigWig](https://www.encodeproject.org/software/bedgraphtobigwig/) command is used to convert `<sample>.sorted.min.bedgraph` to `<sample>.min.bw` file.
+3. Generating RPM and spike-in file: The [`bedtools`](https://bedtools.readthedocs.io/en/latest/) tool is used to scale the `<sample>.bed` file based on the scaling factor RPM, and the output is saved as `<sample>.min.bedgraph` file. The file is then sorted to generate the `<sample>.sorted.min.bedgraph` file. Finally, the [bedGraphToBigWig](https://www.encodeproject.org/software/bedgraphtobigwig/) command is used to convert `<sample>.sorted.min.bedgraph` to `<sample>.min.bw` file.
 
 
 ## 03_callpeak.sh
