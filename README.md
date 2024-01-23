@@ -1,10 +1,10 @@
 # Introduction
-ChIP-seq pipeline is a bioinformatics analysis pipeline used for Chromatin ImmunopreciPitation sequencing (ChIP-seq) data.
+ChIP-Seq pipeline is a bioinformatics analysis pipeline used for Chromatin ImmunopreciPitation sequencing (ChIP-Seq) data.
 
 The rawdata for the pipeline testing is histone and transcription factor IP experiments from ([GEO: GSE189563](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE189563)).
 
-The pipeline is designed to process QC, mapping, calling peak, ChIPQC, chromHMM for ChIP-seq data. 
-overview of ChIP-seq pipeline:
+The pipeline is designed to process QC, mapping, calling peak, ChIPQC, chromHMM for ChIP-Seq data. 
+overview of ChIP-Seq pipeline:
 
 ![peak pipeline](https://github.com/rickbingpan/ChIP-seq/assets/92712179/47ae80d5-bfa5-4953-895f-d3f541a67050)
 # Installation
@@ -25,7 +25,7 @@ overview of ChIP-seq pipeline:
 # Pipeline summary
 ## 01_qc_map.sh
 
-This script performs quality control (QC) and mapping of the ChIP-seq data. It takes the following parameters:
+This script performs quality control (QC) and mapping of the ChIP-Seq data. It takes the following parameters:
 
 ```bash
 sh 01_qc_map.sh <rawdata_path> <out_path> <sample> <yes|no> <ref>
@@ -33,17 +33,18 @@ sh 01_qc_map.sh <rawdata_path> <out_path> <sample> <yes|no> <ref>
 
 - `rawdata_path`: The path to the directory containing the raw data files.
 - `out_path`: The output directory where the results will be stored.
-- `sample`: The name of the ChIP-seq sample.
+- `sample`: The name of the ChIP-Seq sample.
 - `yes|no`: Whether the data is paired-end (`yes`) or single-end (`no`).
 - `ref`: The reference genome file index, such as hg38.fa.
 
 The script performs the following steps:
 
-1. Quality Control: FastQC and Trim Galore! are used to assess and trim raw sequencing data, ensuring high-quality reads for mapping.
-2. Read Mapping: clean reads are aligned to the reference genome using Bowtie2.
-3. Marking Duplicates: Picard Tools are used to mark potential PCR duplicates in the aligned reads.
-4. Result Conversion to BigWig: The final BAM files are converted into BED format, and then into bedgraph format, followed by conversion to BigWig format using bedGraphToBigWig for visualization purposes ([`IGV`](https://www.igv.org/)).
-5. Additional analysis: Statistical mapping information (`assessment.sh.o` for rmdup.bam map results , `assessment.sh.e` for error info and f.assessment.sh.* for final.bam).
+1. Quality Control:  [`TrimGalore`](https://github.com/FelixKrueger/TrimGalore) are used to assess and trim raw sequencing data, ensuring high-quality reads for mapping.
+2. Read Mapping: clean reads are aligned to the reference genome using [`bowtie2`](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml).
+3. Marking Duplicates: [`picard`](https://broadinstitute.github.io/picard/) are used to mark potential PCR duplicates in the aligned reads.
+4. Filtering: Depending on whether the data is paired-end (-q 10 -F1804) or single-end (-q 10 -F1024), the script uses [`samtools`](http://www.htslib.org/) to filter the aligned reads based on mapping quality and flags. The filtered reads are stored in a file named `<sample>.final.bam`.
+5. Result Conversion to BigWig: The final BAM files are converted into BED format, and then into bedgraph format, followed by conversion to BigWig format using [bedGraphToBigWig](https://www.encodeproject.org/software/bedgraphtobigwig/) for visualization purposes ([`IGV`](https://www.igv.org/)).
+6. Additional analysis: Statistical mapping information (`assessment.sh.o` for rmdup.bam map results , `assessment.sh.e` for error info and f.assessment.sh.* for final.bam).
 
 If you need to use this script to run multi samples, you can use this command:
 
@@ -54,22 +55,22 @@ sh run_01_qc_map.sh
 
 ## 02_map_dm6_spikerIN.sh
 
-This script performs mapping of ChIP-seq data to the Drosophila melanogaster (dm6) genome. It takes the following parameters:
+This script performs mapping about ChIP-Seq spike-in normalization. It takes the following parameters:
 
 ```bash
 sh 02_map_dm6_spikerIN.sh <out_path> <sample> <yes|no>
 ```
 
 - `out_path`: The output directory where the results will be stored.
-- `sample`: The name of the ChIP-seq sample.
+- `sample`: The name of the ChIP-Seq sample.
 - `yes|no`: Whether the data is paired-end (`yes`) or single-end (`no`).
 
 The script performs the following steps:
 
-1. Mapping: The script uses `bowtie2` to align the clean reads to the dm6 reference genome. If the data is paired-end, it aligns both read files from the previous step. If the data is single-end, it aligns a single read file. The output is stored in BAM format (`<sample>.bam`).
-2. Mark duplicates: The script uses `picard` to mark duplicate reads in the aligned BAM file. The output is stored in a file named `<sample>.rmdup.bam`.
-3. Filtering: Depending on whether the data is paired-end or single-end, the script uses `samtools` to filter the aligned reads based on mapping quality and flags. The filtered reads are stored in a file named `<sample>.final.bam`.
-4. Additional analysis: The script generates assessment statistics (`assessment.sh.o` and `assessment.sh.e`).
+1. Mapping: The script uses [`bowtie2`](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml) to align the clean reads to the spike-in reference genome. If the data is paired-end, it aligns both read files from the previous step. If the data is single-end, it aligns a single read file. The output is stored in BAM format (`<sample>.bam`).
+2. Mark duplicates: The script uses [`picard`](https://broadinstitute.github.io/picard/) to mark duplicate reads in the aligned BAM file. The output is stored in a file named `<sample>.rmdup.bam`.
+3. Filtering: Depending on whether the data is paired-end (-q 10 -F1804) or single-end (-q 10 -F1024), the script uses [`samtools`](http://www.htslib.org/) to filter the aligned reads based on mapping quality and flags. The filtered reads are stored in a file named `<sample>.final.bam`.
+4. Additional analysis: Statistical mapping information (`assessment.sh.o` and `assessment.sh.e`).
 
 ## 02_scale.bw.sh
 
