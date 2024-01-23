@@ -81,7 +81,7 @@ sh 02_scale.bw.sh <sample> <min_spike> <projectdir> <fai>
 ```
 
 - `sample`: The name of the ChIP-Seq sample.
-- `min_spike`: The lowest value in 02_map_dm6/<sample>/f.assessment.sh.o file's Total records about IP sample.
+- `min_spike`: The lowest total records in 02_map_dm6/<sample>/f.assessment.sh.o file about IP sample.
 - `projectdir`: Current working directory.
 - `fai`: The reference genome file index, such as hg38.fa.fai.
 
