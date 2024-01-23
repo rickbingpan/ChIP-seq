@@ -67,7 +67,7 @@ sh 02_map_dm6_spikerIN.sh <out_path> <sample> <yes|no>
 
 The script performs the following steps:
 
-1. Mapping: The script uses [`bowtie2`](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml) to align the clean reads to the spike-in reference genome. If the data is paired-end, it aligns both read files from the previous step. If the data is single-end, it aligns a single read file. The output is stored in BAM format (`<sample>.bam`).
+1. Read Mapping: clean reads are aligned to the reference genome using [`bowtie2`](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml).
 2. Mark duplicates: The script uses [`picard`](https://broadinstitute.github.io/picard/) to mark duplicate reads in the aligned BAM file. The output is stored in a file named `<sample>.rmdup.bam`.
 3. Filtering: Depending on whether the data is paired-end (`-q 10 -F1804`) or single-end (`-q 10 -F1024`), the script uses [`samtools`](http://www.htslib.org/) to filter the aligned reads based on mapping quality and flags. The filtered reads are stored in a file named `<sample>.final.bam`.
 4. Additional analysis: Statistical mapping information (`assessment.sh.o` and `assessment.sh.e`).
