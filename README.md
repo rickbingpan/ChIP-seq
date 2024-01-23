@@ -17,8 +17,8 @@ overview of ChIP-Seq pipeline:
 4. call.peak.info: It contains 2 columns, `treatment(IP sample) , control(INPUT sample)`.
 5. chromHMM.HM.txt: It contains 4 columns, such as `asyn      H3K27ac      asyn_H3K27ac_rep1.final.bam      asyn_input_rep1.final.bam`
 6. chromhmm.reorder.hmnames.txt: It contains a Histone name every row, such as</br>
-      `H3K4me3</br>`
-      `H3K27ac</br>`
+      `H3K4me3`</br>
+      `H3K27ac`</br>
       `...`
 7. chromhmm.reorder.states.txt: It contains 2 colomuns, `raw state      reorder state(start from 1)`
 
