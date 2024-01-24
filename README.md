@@ -177,7 +177,6 @@ The script performs the following steps:
 | Rip (Percentage of reads wthin peaks) | narrow peaks 5~30% |
 | RelCC (Signal/Noise) | >1(IP), <1(Input) |
 | IGV | show clear peaks |
-
 2. What about noisy signals in learning and characterizing chromatin states?
 We can sort the distribution of signal values and use `ChromHMM.jar BinarizeSignal -g` to filter out peaks of low signals.
 
