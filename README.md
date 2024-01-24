@@ -74,7 +74,7 @@ The script performs the following steps:
 
 ## 02_scale.bw.sh
 
-Used to normalize sequencing depth data, include RPM (reads per million) and spike-in normalization. the following parameters:
+Normalize sequencing depth data, include RPM (reads per million) and spike-in normalization. the following parameters:
 
 ```bash
 sh 02_scale.bw.sh <sample> <min_spike> <projectdir> <fai>
