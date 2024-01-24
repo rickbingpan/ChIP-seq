@@ -139,6 +139,10 @@ The script performs the following steps:
 5. Overlap enrichment: The script uses [`ChromHMM`](https://compbio.mit.edu/ChromHMM/) to calculate overlap enrichment between the chromatin states and specified regions.
 6. Heatmap plotting: This step is currently commented out in the script. It requires additional files (`emissions_15.txt` and `asyn_ol.txt`) to plot the heatmap.
 
+Eg: use [GEO: GSE189563](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE189563) to learn model
+
+![emissions_15](https://github.com/rickbingpan/ChIP-seq/assets/92712179/981f6c9f-09c1-44f1-977e-370958017461)
+
 
 ## 05_merge_overlap1_peak.sh
 
