@@ -175,7 +175,8 @@ The script performs the following steps:
 
 Eg: use [GEO: GSE189563](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE189563) to plot heatmap
 
-![rep1 hm rpm](https://github.com/rickbingpan/ChIP-seq/assets/92712179/76e9aa9a-cc15-4e2b-a021-1bb28e1a214d){width=1px height=5px}
+
+![test](https://github.com/rickbingpan/ChIP-seq/assets/92712179/b1bca447-27f5-4304-9f0d-f84499dac4aa)
 
 # Q&A
 1. What are the ChIP-Seq data quality control criteria？
