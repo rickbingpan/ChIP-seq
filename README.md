@@ -1,7 +1,7 @@
 # Introduction
 ChIP-Seq pipeline is a bioinformatics analysis pipeline used for Chromatin ImmunopreciPitation sequencing (ChIP-Seq) data.
 
-The rawdata for the pipeline testing is histone and transcription factor IP experiments from ([GEO: GSE189563](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE189563)).
+The rawdata of testing the pipeline is histone and transcription factor IP experiments from ([GEO: GSE189563](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE189563)).
 
 The pipeline is designed to process QC, mapping, calling peak, ChIPQC, chromHMM for ChIP-Seq data. 
 overview of ChIP-Seq pipeline:
