@@ -168,6 +168,11 @@ sh 06_peakCenter_heatmap.sh <project_path> <peak> <sample>
 The script performs the following steps:
 
 1. Heatmap plotting: The script uses `computeMatrix` and `plotHeatmap` to generate a heatmap of the peak centers based on the raw/RPM/spike-in scaled bw file.
+# Q&A
+1.What are the ChIP-Seq data quality control standards？
+| feature | cutoff |
+| --- | --- |
+| total mapping reads | >80% |
 
 # Conclusion
 
