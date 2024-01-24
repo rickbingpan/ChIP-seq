@@ -170,6 +170,7 @@ The script performs the following steps:
 1. Heatmap plotting: The script uses `computeMatrix` and `plotHeatmap` to generate a heatmap of the peak centers based on the raw/RPM/spike-in scaled bw file.
 # Q&A
 1. What are the ChIP-Seq data quality control criteria？
+   
 | feature | cutoff |
 | --- | --- |
 | total mapping reads | >80% |
@@ -177,8 +178,8 @@ The script performs the following steps:
 | Rip (Percentage of reads wthin peaks) | narrow peaks 5~30% |
 | RelCC (Signal/Noise) | >1(IP), <1(Input) |
 | IGV | show clear peaks |
-2. What about noisy signals in learning and characterizing chromatin states?
-We can sort the distribution of signal values and use `ChromHMM.jar BinarizeSignal -g` to filter out peaks of low signals.
+
+
 
 # Conclusion
 
