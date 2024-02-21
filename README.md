@@ -52,6 +52,10 @@ If you need to use this script to run multiple samples, you can use this command
 cat ../sample.list |while read i;do echo "nohup sh 01_qc_map.sh rawdata_path out_path $i yes|no ref &" >> run_01_qc_map.sh; done
 sh run_01_qc_map.sh
 ```
+sample.list format: Each sample is one line, such as</br>
+      `asyn_H3K27ac_rep1`</br>
+      `asyn_H3K27ac_rep2`</br>
+      `...`
 
 ## 02_map_dm6_spikerIN.sh
 
@@ -81,7 +85,7 @@ sh 02_scale.bw.sh <sample> <min_spike> <projectdir> <fai>
 ```
 
 - `sample`: The name of the ChIP-Seq sample.
-- `min_spike`: The lowest total records in 02_map_dm6/<sample>/f.assessment.sh.o file about IP sample.
+- `min_spike`: The lowest total records in 02_map_dm6/<sample>/assessment.sh.o file about IP sample.
 - `projectdir`: Current working directory.
 - `fai`: The reference genome file index, such as hg38.fa.fai.
 
@@ -100,8 +104,8 @@ sh 03_callpeak.sh <project_path> <tre> <con> <paire> <ref> <blacklist.bed>
 ```
 
 - `project_path`: Current working directory.
-- `tre`: The treatment sample name.
-- `con`: The control sample name.
+- `tre`: The treatment sample name. such as: asyn_H3K27ac_rep1
+- `con`: The control sample name. such as: asyn_input_rep1
 - `paire`: Whether the data is paired-end (`yes`) or single-end (`no`).
 - `ref`: The reference genome file index, such as hg38.fa.fai.
 - `blacklist.bed`: filter peaks with blacklist, such as mm10-blacklist.v2.bed and hg38-blacklist.v2.bed.
