@@ -152,7 +152,7 @@ The script performs the following steps:
 
 1. Binarize BAM files: bam file changes to binary files by [`ChromHMM`](https://compbio.mit.edu/ChromHMM/) BinarizeBam.
 
-   User need to prepare the chromHMM.HM.txt file. Format as follows:
+   User need to prepare the `chromHMM.HM.txt` file. Format as follows:
 
    ![image](https://github.com/rickbingpan/ChIP-seq/assets/92712179/f099d9da-a520-4dee-9279-3fbbbce69112)
 
