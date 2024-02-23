@@ -154,12 +154,12 @@ The script performs the following steps:
 
    User need to prepare the chromHMM.HM.txt file. Format as follows:
 
-   ![image](https://github.com/rickbingpan/ChIP-seq/assets/92712179/1a60fae6-0abd-4826-8aad-cce5caeeb03e)
-   
-3. Learn model: The script uses [`ChromHMM`](https://compbio.mit.edu/ChromHMM/) to learn a model based on the binarized data.
-4. Reorder states: The script reorders the chromatin states based on a predefined order specified in the `chromhmm.reorder.hmnames.txt` file.
+   ![image](https://github.com/rickbingpan/ChIP-seq/assets/92712179/f099d9da-a520-4dee-9279-3fbbbce69112)
 
-![image](https://github.com/rickbingpan/ChIP-seq/assets/92712179/16de2805-9552-4c1f-b808-d54a45947707)
+3. Learn model: The script uses [`ChromHMM`](https://compbio.mit.edu/ChromHMM/) to learn a model based on the binarized data.
+4. Reorder states: The script reorders the chromatin states based on a predefined order specified in the `chromhmm.reorder.hmnames.txt` and  `chromhmm.reorder.states.txt` files. Format as follows:
+
+   ![image](https://github.com/rickbingpan/ChIP-seq/assets/92712179/16de2805-9552-4c1f-b808-d54a45947707)
 
 4. Make segmentation: The script performs analysis on other data using the trained model to generate segmentation files.
 5. Overlap enrichment: The script uses [`ChromHMM`](https://compbio.mit.edu/ChromHMM/) to calculate overlap enrichment between the chromatin states and specified regions.
