@@ -57,7 +57,7 @@ sample.list format: Each sample is one line, such as</br>
       `asyn_H3K27ac_rep2`</br>
       `...`
       
-When the program is finished, there are 15 such files in each sample folder. such as:
+When the program is finished, there are 15 files in each sample folder. such as:
 ![image](https://github.com/rickbingpan/ChIP-seq/assets/92712179/6f3fec11-af29-47b2-bd2b-a4f125622b16)
 
 ## 02_map_dm6_spikerIN.sh
@@ -79,6 +79,9 @@ The script performs the following steps:
 3. Filtering: Depending on whether the data is paired-end (`-q 10 -F1804`) or single-end (`-q 10 -F1024`), the script uses [`samtools`](http://www.htslib.org/) to filter the aligned reads based on mapping quality and flags. The filtered reads are stored in a file named `<sample>.final.bam`.
 4. Additional analysis: Statistical mapping information (`assessment.sh.o` and `assessment.sh.e`).
 
+When the program is finished, there are 8 files in each sample folder. such as:
+![image](https://github.com/rickbingpan/ChIP-seq/assets/92712179/1e90bbac-0ee7-421e-ad71-18992ea771ea)
+
 ## 02_scale.bw.sh
 
 Normalize sequencing depth data, include RPM (reads per million) and spike-in normalization. the following parameters:
@@ -97,6 +100,7 @@ The script performs the following steps:
 2. Generating RPM (Reads Per Million) file: The [`bedtools`](https://bedtools.readthedocs.io/en/latest/) tool is used to scale the `<sample>.bed` file based on the scaling factor RPM, and the output is saved as `<sample>.rpm.bedgraph` file. The file is then sorted to generate the `<sample>.sorted.rpm.bedgraph` file. Finally, the [bedGraphToBigWig](https://www.encodeproject.org/software/bedgraphtobigwig/) command is used to convert `<sample>.sorted.rpm.bedgraph` to `<sample>.rpm.bw` file.
 3. Generating RPM and spike-in file: The [`bedtools`](https://bedtools.readthedocs.io/en/latest/) tool is used to scale the `<sample>.bed` file based on the scaling factor RPM, and the output is saved as `<sample>.min.bedgraph` file. The file is then sorted to generate the `<sample>.sorted.min.bedgraph` file. Finally, the [bedGraphToBigWig](https://www.encodeproject.org/software/bedgraphtobigwig/) command is used to convert `<sample>.sorted.min.bedgraph` to `<sample>.min.bw` file.
 
+When the program is finished, there add 2 files (*rpm.bw, *min.bw) in each sample '01_qc_map' folder.
 
 ## 03_callpeak.sh
 
@@ -125,6 +129,11 @@ If you need to use this script to run multiple samples, you can use this command
 cat ../callpeak.sample.info |while read a b c;do echo "nohup sh 03_callpeak.sh project_path $a $b $c ref blacklist &" >> run_03call_peak.sh; done
 sh run_03call_peak.sh
 ```
+
+When the program is finished, there are 6 files in each sample folder. such as:
+
+![image](https://github.com/rickbingpan/ChIP-seq/assets/92712179/6839230a-aa92-4b46-bef5-be07f7acbc00)
+
 
 ## 04_chromHMM.sh
 
