@@ -56,6 +56,7 @@ sample.list format: Each sample is one line, such as</br>
       `asyn_H3K27ac_rep1`</br>
       `asyn_H3K27ac_rep2`</br>
       `...`
+      
 When the program is finished, there are 15 such files in each sample folder. such as:
 ![image](https://github.com/rickbingpan/ChIP-seq/assets/92712179/6f3fec11-af29-47b2-bd2b-a4f125622b16)
 
