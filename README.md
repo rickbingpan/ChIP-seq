@@ -139,7 +139,7 @@ When the program is finished, there are 6 files in each sample folder. such as:
 
 ## 04_chromHMM.sh
 
-Learning and characterizing chromatin states by [`ChromHMM`](https://compbio.mit.edu/ChromHMM/). the following parameters:
+Learning and characterizing chromatin states by [`ChromHMM`](https://compbio.mit.edu/ChromHMM/). If the 'Emission Parameters' heatmap result does not make biological sense, this step may require adjusting 'BinarizeSignal'(see Q&A below for details) and reordering chromosome states, so a step-by-step run of '04_chromHMM.sh' is recommended. the following parameters:
 
 ```bash
 sh 04_chromHMM.sh <project_path> <ref>
