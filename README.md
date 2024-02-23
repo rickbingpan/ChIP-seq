@@ -58,6 +58,7 @@ sample.list format: Each sample is one line, such as</br>
       `...`
       
 When the program is finished, there are 15 files in each sample folder. such as:
+
 ![image](https://github.com/rickbingpan/ChIP-seq/assets/92712179/6f3fec11-af29-47b2-bd2b-a4f125622b16)
 
 ## 02_map_dm6_spikerIN.sh
@@ -80,6 +81,7 @@ The script performs the following steps:
 4. Additional analysis: Statistical mapping information (`assessment.sh.o` and `assessment.sh.e`).
 
 When the program is finished, there are 8 files in each sample folder. such as:
+
 ![image](https://github.com/rickbingpan/ChIP-seq/assets/92712179/1e90bbac-0ee7-421e-ad71-18992ea771ea)
 
 ## 02_scale.bw.sh
