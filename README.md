@@ -156,7 +156,7 @@ The script performs the following steps:
 
    ![image](https://github.com/rickbingpan/ChIP-seq/assets/92712179/f099d9da-a520-4dee-9279-3fbbbce69112)
 
-3. Learn model: The script uses [`ChromHMM`](https://compbio.mit.edu/ChromHMM/) to learn a model based on the binarized data.
+3. Learn model: The script uses [`ChromHMM`](https://compbio.mit.edu/ChromHMM/) to learn a model based on the binarized data. user needs to parse `emissions_*.png` in the results folder.
 4. Reorder states: The script reorders the chromatin states based on a predefined order specified in the `chromhmm.reorder.hmnames.txt` and  `chromhmm.reorder.states.txt` files. Format as follows:
 
    ![image](https://github.com/rickbingpan/ChIP-seq/assets/92712179/16de2805-9552-4c1f-b808-d54a45947707)
